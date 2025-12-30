@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Red Cross Principles Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Which Red Cross Principle Defines You?</h1>
+
+    <!-- Progress bar -->
+    <div class="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div id="progress-text">Question 1 of 10</div>
+
+    <button id="back-btn" type="button" class="back-button">Back</button>
+
+    <!-- Quiz Questions -->
+    <section id="quiz-page">
+
+      <div class="question active" data-index="0">
+        <h2>1. When helping someone, what matters most?</h2>
+        <button data-value="Humanity">Compassion and kindness</button>
+        <button data-value="Impartiality">Treating everyone fairly</button>
+        <button data-value="Neutrality">Staying calm and unbiased</button>
+      </div>
+
+      <div class="question" data-index="1">
+        <h2>2. How do you decide who to help?</h2>
+        <button data-value="Independence">Following my values</button>
+        <button data-value="Voluntary Service">Because I want to, not for reward</button>
+        <button data-value="Unity">Working with others for a cause</button>
+      </div>
+
+      <div class="question" data-index="2">
+        <h2>3. Who should be helped?</h2>
+        <button data-value="Universality">Everyone, everywhere</button>
+        <button data-value="Impartiality">Anyone in need, equally</button>
+        <button data-value="Humanity">Those suffering most</button>
+      </div>
+
+      <div class="question" data-index="3">
+        <h2>4. In a conflict, what's your role?</h2>
+        <button data-value="Neutrality">Remain impartial and objective</button>
+        <button data-value="Independence">Make decisions based on principles</button>
+        <button data-value="Universality">Protect everyone involved</button>
+      </div>
+
+      <div class="question" data-index="4">
+        <h2>5. What drives your actions?</h2>
+        <button data-value="Voluntary Service">Inner motivation, not external reward</button>
+        <button data-value="Humanity">The desire to ease suffering</button>
+        <button data-value="Unity">Collective good and teamwork</button>
+      </div>
+
+      <div class="question" data-index="5">
+        <h2>6. How do you view helping others?</h2>
+        <button data-value="Universality">A global responsibility</button>
+        <button data-value="Voluntary Service">A personal choice and privilege</button>
+        <button data-value="Independence">An act of personal integrity</button>
+      </div>
+
+      <div class="question" data-index="6">
+        <h2>7. What's most important in service?</h2>
+        <button data-value="Impartiality">Equal treatment for all</button>
+        <button data-value="Humanity">Showing compassion above all</button>
+        <button data-value="Unity">Bringing people together</button>
+      </div>
+
+      <div class="question" data-index="7">
+        <h2>8. How do you handle disagreement?</h2>
+        <button data-value="Neutrality">Stay objective and balanced</button>
+        <button data-value="Independence">Stand firm in your convictions</button>
+        <button data-value="Voluntary Service">Find willing compromise</button>
+      </div>
+
+      <div class="question" data-index="8">
+        <h2>9. Who benefits most from your help?</h2>
+        <button data-value="Universality">Everyone across all borders</button>
+        <button data-value="Impartiality">Those most in need, regardless of status</button>
+        <button data-value="Humanity">The most vulnerable</button>
+      </div>
+
+      <div class="question" data-index="9">
+        <h2>10. What defines your character?</h2>
+        <button data-value="Independence">Staying true to my principles</button>
+        <button data-value="Unity">Working well with others</button>
+        <button data-value="Voluntary Service">Acting without seeking recognition</button>
+      </div>
+
+    </section>
+
+    <!-- Result Page -->
+    <section id="result-page" class="hidden">
+
+      <div id="result-card">
+        <div class="result-icon" id="result-icon"></div>
+        <h2 id="result-title"></h2>
+        <p id="result-description"></p>
+        <p class="result-trait" id="result-trait"></p>
+
+        <ul id="service-list"></ul>
+
+        <p class="result-footer">
+          Based on the Seven Fundamental Principles of the Red Cross and Red Crescent Movement.
+        </p>
+      </div>
+
+      <button onclick="window.print()">Share / Save Result</button>
+      <button onclick="location.reload()">Restart Quiz</button>
+
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
