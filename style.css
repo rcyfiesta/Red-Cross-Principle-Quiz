@@ -249,3 +249,39 @@ button:hover {
     font-size: 100px;
   }
 }
+/* ---------- MOBILE CLEANUP ---------- */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  button,
+  .back-button {
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  #result-card {
+    padding: 20px;
+    max-width: 100%;
+    aspect-ratio: auto; /* IMPORTANT for scrolling */
+  }
+
+  .result-icon {
+    font-size: 56px;
+  }
+
+  #service-list li {
+    padding: 10px;
+  }
+
+  #service-list p.service-desc {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
