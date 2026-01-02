@@ -289,29 +289,42 @@ function showResult() {
 }
 
 /* ---------- SHARE (PNG → SHARE SHEET) ---------- */
-shareBtn.addEventListener("click", async () => {
-  const canvas = await html2canvas(document.getElementById("result-card"), {
+shareBtn.addEventListener("click", () => {
+  const card = document.getElementById("result-card");
+
+  html2canvas(card, {
     scale: 2,
-    backgroundColor: "#ffffff"
-  });
+    backgroundColor: "#ffffff",
+    useCORS: true
+  }).then(canvas => {
+    canvas.toBlob(blob => {
+      const file = new File(
+        [blob],
+        "My-Red-Cross-Principle.png",
+        { type: "image/png" }
+      );
 
-  canvas.toBlob(async blob => {
-    const file = new File([blob], "My-Red-Cross-Principle.png", { type: "image/png" });
-
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({
-        files: [file],
-        title: "My Red Cross Principle",
-        text: "Which Red Cross Principle defines you?"
-      });
-    } else {
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "My-Red-Cross-Principle.png";
-      link.click();
-    }
+      // ✅ Mobile native share
+      if (navigator.share && navigator.canShare({ files: [file] })) {
+        navigator.share({
+          files: [file],
+          title: "My Red Cross Principle",
+          text: "Which Red Cross Principle defines you?"
+        }).catch(() => {});
+      } 
+      // ❌ Fallback
+      else {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "My-Red-Cross-Principle.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    });
   });
 });
+
 
 /* ---------- START ---------- */
 showQuestion(0);
